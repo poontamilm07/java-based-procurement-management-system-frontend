@@ -63,11 +63,12 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         // ✅ Add your Lovable frontend URL here + localhost for testing
-        config.setAllowedOrigins(Arrays.asList(
-                "http://localhost:5173",   // Vite dev server
-                "http://localhost:3000",   // React dev server
+        config.setAllowedOriginPatterns(Arrays.asList(
+                "http://localhost:5173",
+                "http://localhost:3000",
                 "http://localhost:8080",
-                "https://*.lovable.app",   // Lovable preview
+                "https://*.vercel.app",
+                "https://*.lovable.app",
                 "https://*.lovableproject.com"
         ));
 
@@ -83,7 +84,7 @@ public class SecurityConfig {
                 "X-Requested-With"
         ));
 
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false);
         config.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
