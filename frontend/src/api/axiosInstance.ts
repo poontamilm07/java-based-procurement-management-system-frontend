@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 // Use relative URL so Vite's proxy forwards requests to backend (avoids CORS)
-const API = axios.create({ baseURL: '/' });
+const API = axios.create({
+  baseURL: 'https://java-based-procurement-management-system.onrender.com'
+});
 
 API.interceptors.request.use(cfg => {
   const token = localStorage.getItem('procurementToken');
